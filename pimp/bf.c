@@ -201,17 +201,17 @@ unsigned int round1(unsigned int sn2, unsigned char *mem){
 int testx(int x, unsigned int sn2, unsigned int res, unsigned char *mem){
     unsigned int r1;
 
-    if(x==0){
-        r1 = round0(sn2, mem);
-        return (r1==res);
+	switch(x){
+		case 0:
+	        r1 = round0(sn2, mem);
+		case 1:
+			r1 = round1(sn2, mem);
+
+		default:
+        	return 0;
     }
-    else if (x==1){
-        r1 = round1(sn2, mem);
-        return (r1==res);
-    }
-    else{
-        1/0;
-    }
+
+    return (r1==res);
 }
 
 int main(int argc, char *argv[]){
