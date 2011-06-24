@@ -204,9 +204,10 @@ int testx(int x, unsigned int sn2, unsigned int res, unsigned char *mem){
 	switch(x){
 		case 0:
 	        r1 = round0(sn2, mem);
+	        break;
 		case 1:
 			r1 = round1(sn2, mem);
-
+			break;
 		default:
         	return 0;
     }
