@@ -1,0 +1,11 @@
+Pimp crackme by j00ru & Gynvael Coldwind
+----------------------------------------
+
+Run rip_vm.py in IDA to decompile the VM.
+Compile bf.c with gcc bf.c -O3 and run it with
+go.py to get the second dword.
+
+Details on my blog
+
+pa_kt
+gdtr.wordpress.com
