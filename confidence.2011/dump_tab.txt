@@ -1,0 +1,49 @@
+//
+// put a breakpoint at
+// 0026090F   898D 38FFFFFF    MOV DWORD PTR SS:[EBP-C8],ECX
+// and run the script
+//
+//
+
+var d1_ptr
+var d2_ptr
+var c_ptr
+
+var d1
+var d2
+var count
+var shift
+    
+    
+    mov c_ptr, 18f7f0
+    mov d1_ptr, c_ptr
+    add d1_ptr, 4
+    mov d2_ptr, d1_ptr
+    add d2_ptr, 4
+    
+    mov count, 0
+    mov shift, 1
+    
+next:
+    
+    mov ecx, shift
+
+    mov [d1_ptr], 0
+    mov [d2_ptr], 0
+    mov [c_ptr], 0
+    
+    sti
+    run
+    
+    mov d1, [d1_ptr]
+    mov d2, [d2_ptr]    
+
+    eval "{d1} {d2} {count}"
+    log $RESULT
+
+    inc count
+    mul shift, 2
+    cmp count, 20 //32 dec.
+    jne next
+
+    ret

@@ -1,0 +1,20 @@
+Confidence 2011 crackme solution
+--------------------------------
+
+pa_kt
+7e476857-pcp1aa1agslatl3tptgs
+
+Files:
+
+force64.exe - crackme
+elf.bin - mapped ELF binary, core of the scheme is implemented here
+bf.c - bruteforcer
+kg.py - "keygen". You will need to add CubeHash computation and rip a bit of
+	code from the crackme, to make it a real keygen.
+dump_tab.txt - table ripping script. You will need OllyScript to use it.
+
+If you are interested why this CRC implementation works, see my blog. 
+
+pa_kt
+gdtr.wordpress.com
+
