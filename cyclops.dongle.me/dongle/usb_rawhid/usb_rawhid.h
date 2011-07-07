@@ -14,6 +14,32 @@ int8_t usb_rawhid_send(const uint8_t *buffer, uint8_t timeout); // send a packet
 #define usb_debug_putchar(c)
 #define usb_debug_flush_output()
 
+/**************************************************************************
+ *
+ *  Configurable Options
+ *
+ **************************************************************************/
+
+// You can change these to give your code its own name.
+#define STR_MANUFACTURER	L"MfgName"
+#define STR_PRODUCT		L"Teensy Raw HID Example"
+
+// These 4 numbers identify your device.  Set these to
+// something that is (hopefully) not used by any others!
+#define VENDOR_ID		0x04d8
+#define PRODUCT_ID		0x003f
+#define RAWHID_USAGE_PAGE	0xFF00	// recommended: 0xFF00 to 0xFFFF
+#define RAWHID_USAGE		0x0002	// recommended: 0x0100 to 0xFFFF
+
+// These determine the bandwidth that will be allocated
+// for your communication.  You do not need to use it
+// all, but allocating more than necessary means reserved
+// bandwidth is no longer available to other USB devices.
+#define RAWHID_TX_SIZE		64	// transmit packet size
+#define RAWHID_TX_INTERVAL	2	// max # of ms between transmit packets
+#define RAWHID_RX_SIZE		RAWHID_TX_SIZE	// receive packet size
+#define RAWHID_RX_INTERVAL	8	// max # of ms between receive packets
+
 
 // Everything below this point is only intended for usb_serial.c
 #ifdef USB_PRIVATE_INCLUDE
@@ -43,7 +69,7 @@ int8_t usb_rawhid_send(const uint8_t *buffer, uint8_t timeout); // send a packet
 #define MSB(n) ((n >> 8) & 255)
 
 #if defined(__AVR_AT90USB162__)
-#define HW_CONFIG() 
+#define HW_CONFIG()
 #define PLL_CONFIG() (PLLCSR = ((1<<PLLE)|(1<<PLLP0)))
 #define USB_CONFIG() (USBCON = (1<<USBE))
 #define USB_FREEZE() (USBCON = ((1<<USBE)|(1<<FRZCLK)))

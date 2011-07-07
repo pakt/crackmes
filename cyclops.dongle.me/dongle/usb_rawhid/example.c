@@ -1,17 +1,17 @@
 /* Teensy RawHID example
  * http://www.pjrc.com/teensy/rawhid.html
  * Copyright (c) 2009 PJRC.COM, LLC
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above description, website URL and copyright notice and this permission
  * notice shall be included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,20 +24,22 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
+#include <avr/eeprom.h>
 #include <util/delay.h>
 #include "usb_rawhid.h"
 #include "analog.h"
 
 #define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))
 
+#define EEPROM_BUF_ADDR 0
+
 volatile uint8_t do_output=0;
-uint8_t buffer[64];
+uint8_t buffer[RAWHID_TX_SIZE];
 
 int main(void)
 {
 	int8_t r;
-	uint8_t i;
-	uint16_t val, count=0;
+	uint16_t count=0;
 
 	// set for 16 MHz clock
 	CPU_PRESCALE(0);
@@ -52,37 +54,25 @@ int main(void)
 	// and do whatever it does to actually be ready for input
 	_delay_ms(1000);
 
-        // Configure timer 0 to generate a timer overflow interrupt every
-        // 256*1024 clock cycles, or approx 61 Hz when using 16 MHz clock
-        TCCR0A = 0x00;
-        TCCR0B = 0x05;
-        TIMSK0 = (1<<TOIE0);
+	// Configure timer 0 to generate a timer overflow interrupt every
+	// 256*1024 clock cycles, or approx 61 Hz when using 16 MHz clock
+	TCCR0A = 0x00;
+	TCCR0B = 0x05;
+	TIMSK0 = (1<<TOIE0);
+
+	eeprom_read_block(buffer, EEPROM_BUF_ADDR, RAWHID_TX_SIZE);
 
 	while (1) {
 		// if received data, do something with it
 		r = usb_rawhid_recv(buffer, 0);
 		if (r > 0) {
-			// output 4 bits to D0, D1, D2, D3 pins
-			DDRD = 0x0F;
-			PORTD = (PORTD & 0xF0) | (buffer[0] & 0x0F);
-			// ignore the other 63.5 bytes....
+			// save received data into eeprom
+			eeprom_update_block(buffer, EEPROM_BUF_ADDR, RAWHID_TX_SIZE);
 		}
-		// if time to send output, transmit something interesting
+		// if time to send output, transmit whatever we received earlier
 		if (do_output) {
 			do_output = 0;
-			// send a packet, first 2 bytes 0xABCD
-			buffer[0] = 0xAB;
-			buffer[1] = 0xCD;
- 			// put A/D measurements into next 24 bytes
-			for (i=0; i<12; i++) {
-				val = analogRead(i);
-				buffer[i * 2 + 2] = val >> 8;
-				buffer[i * 2 + 3] = val & 255;
-			}
-			// most of the packet filled with zero
-			for (i=26; i<62; i++) {
-				buffer[i] = 0;
-			}
+
 			// put a count in the last 2 bytes
 			buffer[62] = count >> 8;
 			buffer[63] = count & 255;

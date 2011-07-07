@@ -1,0 +1,37 @@
+Dongle Me by cyclops
+--------------------
+
+This a hardware solution for dongle me by cyclops. You will need to acquire
+a Teensy compatible dongle, or build one yourself.
+
+The keygen generates a correct ECNR signature for current user's username 
+and transmits it to the dongle. Dongle stores it in EEPROM and peridically 
+sends the signature to the OS.
+
+You will need:
+- teensy (www.pjrc.com/teensy), or a compatible clone
+- mingw compiler
+- WinAVR
+- unix utils (not essential, but used in makefile)
+- miracl library (www.shamus.ie), but only for headers, you don't need to
+  compile it -- necessary .o files are in \mingw-obj folder
+- FLIP 3.4.3 (http://goo.gl/ZRqFD), but only if you are using a clone and
+  the original Teensy loader doesn't work for you
+
+Installation:
+- go to usb_rawhid dir. and change "MCU" in makefile, to match the processor
+  you are using. When done, build example.hex with "make".
+- using FLIP, or the original Teensy loader, load example.hex onto the
+  dongle. There should be a button on the dongle, don't forget to keep it
+  pressed when plugging it in, otherwise you won't be able to program it.
+- Unplug the dongle and plug it again, but without pressing the button. This
+  will allow your program to run.
+- Go to \kg directory and build with "make". 
+- Run kg.exe to send necessary information to the dongle.
+- Done. Your dongle will be accepted by the crackme, but only on system 
+  accounts you run kg.exe under (usernames must match, otherwise you will 
+  need to reprogram).
+
+
+pa_kt
+gdtr.wordpress.com
