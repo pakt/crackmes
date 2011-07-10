@@ -13,6 +13,10 @@ Usage (hw dongle):
 - program your dongle as explained below
 - run kg.exe /dongle to write correct signature to the dongle
 - unplug and plug again
+- run the crackme
+
+Hw dongle
+---------
 
 You will need to acquire a Teensy compatible dongle, or build one yourself.
 
