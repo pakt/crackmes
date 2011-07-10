@@ -8,6 +8,7 @@
 
 extern "C" {
 	#include "hid.h"
+	#include "vmulticlient.h"
 }
 
 
@@ -62,13 +63,25 @@ int main(int argc, char *argv[]){
 
 	char sig1[64], sig2[64], buf[RAWHID_TX_SIZE];
 
-	int r, l1, l2;
+	int emu, r, l1, l2;
 
 	TCHAR  userName[USER_NAME_MAX_SIZE];
 	DWORD  bufCharCount = USER_NAME_MAX_SIZE;
 
+	pvmulti_client vmulti;
+
     miracl *mip=&precision;
     mip->IOBASE=16;
+
+    if(argc<2){
+		printf("%s /dongle|/emu\n", argv[0]);
+		return 1;
+	}
+
+	emu = 0;
+	if(!strcmp(argv[1], "/emu")){
+		emu = 1;
+	}
 
 	signer = ECNR();
 	signer.set_curve(a, b, p);
@@ -96,13 +109,6 @@ int main(int argc, char *argv[]){
 	//ok = signer.verify(msg, s1, s2);
 	//cout << "ok=" << ok << endl;
 
-	r = rawhid_open(1, VENDOR_ID, PRODUCT_ID, RAWHID_USAGE_PAGE, RAWHID_USAGE);
-	if (r <= 0) {
-		printf("no rawhid device found, please plug in the dongle\n");
-		return -1;
-	}
-	printf("found rawhid device\n");
-
 	sig1 << s1;
 	sig2 << s2;
 
@@ -111,27 +117,77 @@ int main(int argc, char *argv[]){
 
 	if(l1+l2+2+1 > RAWHID_TX_SIZE){
 		printf("signature won't fit in xfer packet :p\n");
-		rawhid_close(0);
 		return 1;
 	}
 
-	buf[0] = strlen(sig1);
-	buf[1] = strlen(sig2);
+	buf[0] = l1;
+	buf[1] = l2;
 	memcpy(buf+2, sig1, l1);
 	memcpy(buf+2+l1, sig2, l2);
 
-	printf("sending the packet...\n");
+	if(emu){
+		vmulti = vmulti_alloc();
+	    if (vmulti == NULL)
+	    {
+			printf("vmulti_alloc failed\n");
+	        return 1;
+	    }
 
-	r = rawhid_send(0, buf, 64, 100);
+	    if (!vmulti_connect(vmulti))
+	    {
+			printf("can't connect to vmulti, did you install the driver?\n");
+	        vmulti_free(vmulti);
+	        return 1;
+	    }
 
-	if(r != RAWHID_TX_SIZE){
-		printf("sending packet failed :(\n");
-		rawhid_close(0);
-		return 1;
+        VMultiMessageReport report;
+		int msg=0;
+
+		while(1){
+
+            memcpy(report.Message, buf, 64);
+
+            if(!vmulti_write_message(vmulti, &report))
+            {
+				printf("can't write to vmulti\n");
+				break;
+			}
+			else if(!msg){
+				printf("you can run the crackme now\n");
+				msg=1;
+			}
+
+			printf(".");
+			Sleep(1000);
+		}
+
+	    vmulti_disconnect(vmulti);
+	    vmulti_free(vmulti);
+	    return 0;
 	}
+	else{
+		r = rawhid_open(1, VENDOR_ID, PRODUCT_ID, RAWHID_USAGE_PAGE, RAWHID_USAGE);
+		if (r <= 0) {
+			printf("no rawhid device found, please plug in the dongle\n");
+			return -1;
+		}
+		printf("found rawhid device\n");
 
-	printf("success!\n");
-	rawhid_close(0);
 
-	return 0;
+
+		printf("sending the packet...\n");
+
+		r = rawhid_send(0, buf, 64, 100);
+		printf("r=%d\n", r);
+		if(r != RAWHID_TX_SIZE){
+			printf("rawhid_send failed :(\n");
+			rawhid_close(0);
+			return 1;
+		}
+
+		printf("success!\n");
+		rawhid_close(0);
+
+		return 0;
+	}
 }

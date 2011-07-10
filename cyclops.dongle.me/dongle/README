@@ -1,8 +1,20 @@
 Dongle Me by cyclops
 --------------------
 
-This a hardware solution for dongle me by cyclops. You will need to acquire
-a Teensy compatible dongle, or build one yourself.
+Usage (emulator):
+-----------------
+- go to dongle\bin\vmulti and run install_driver.bat. Successful installation
+  will result in new HID devices being shown in Device Manager (tested on XP).
+- go to \dongle\bin and run kg.exe /emu
+- run the crackme
+
+Usage (hw dongle):
+------------------
+- program your dongle as explained below
+- run kg.exe /dongle to write correct signature to the dongle
+- unplug and plug again
+
+You will need to acquire a Teensy compatible dongle, or build one yourself.
 
 The keygen generates a correct ECNR signature for current user's username 
 and transmits it to the dongle. Dongle stores it in EEPROM and peridically 
@@ -27,11 +39,24 @@ Installation:
 - Unplug the dongle and plug it again, but without pressing the button. This
   will allow your program to run.
 - Go to \kg directory and build with "make". 
-- Run kg.exe to send necessary information to the dongle.
+- Run kg.exe /dongle to send necessary information to the dongle.
 - Done. Your dongle will be accepted by the crackme, but only on system 
   accounts you run kg.exe under (usernames must match, otherwise you will 
   need to reprogram).
 
+WARNING
+-------
+If you ever decide to mix mingw and VS object files, punch yourself in the face
+and think again. 
+Here are some tips, if you decide to ignore these words of wisdom:
+
+- to disable name mangling in VS, declare functions as __cdecl. This will 
+  produce _foo, instead of foo@N
+- in sources compiled with mingw (g++), declare functions linked from VS objects
+  in extern "C" {}
+- if you are getting errors regarding __security_cookie* symbols, remove /GS
+  flag from VS parameters. In case of DDK, change BUFFER_OVERFLOW_CHECKS to 0,
+  inside i386mk.inc.
 
 pa_kt
 gdtr.wordpress.com

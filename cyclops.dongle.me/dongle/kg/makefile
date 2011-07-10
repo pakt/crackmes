@@ -7,10 +7,10 @@ OBJS = $(patsubst %,$(ODIR)\\%,$(_OBJS))
 #
 LIBS = -lhid -lsetupapi
 #
-FLAGS = -Wall -Ic:\miracl\include -I..\usb_rawhid -I..\rawhid_test -static
+FLAGS = -Wall -I..\vmulti\inc -Ic:\miracl\include -I..\usb_rawhid -I..\rawhid_test -static
 
 all: ecnr.o keygen.o crc32.o hid.o
-	g++  $(OBJS) ..\rawhid_test\hid.o ecnr.o keygen.o crc32.o $(LIBS) -o kg.exe
+	g++  $(OBJS)  ..\rawhid_test\hid.o ecnr.o keygen.o crc32.o vmulticlient.lib $(LIBS) -o kg.exe
 
 hid.o:
 	cd "..\rawhid_test";$(MAKE)

@@ -1,0 +1,10 @@
+devcon.exe remove "HID\VMulti&Col01"
+devcon.exe remove "HID\VMulti&Col02"
+devcon.exe remove "HID\VMulti&Col03"
+devcon.exe remove "HID\VMulti&Col04"
+devcon.exe remove "HID\VMulti&Col05"
+devcon.exe remove "HID\VMulti&Col06"
+devcon.exe remove "HID\VMulti&Col07"
+devcon.exe remove "HID\VMulti&Col08"
+devcon.exe remove "HID\vmulti"
+
