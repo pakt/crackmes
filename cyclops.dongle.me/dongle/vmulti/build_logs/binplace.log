@@ -1,0 +1,4 @@
+c:\dongle\vmulti\sys	c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.inf				Sun Jul 10 15:07:05 2011	c:\dongle\vmulti\bin\vmulti.inf				
+c:\dongle\vmulti\hidmapper	c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys				Sun Jul 10 15:07:06 2011	c:\dongle\vmulti\bin\hidkmdf.sys	c:\dongle\vmulti\Symbols.pri\bin\sys\hidkmdf.pdb			
+c:\dongle\vmulti\sys	c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys				Sun Jul 10 15:07:06 2011	c:\dongle\vmulti\bin\vmulti.sys	c:\dongle\vmulti\Symbols.pri\bin\sys\vmulti.pdb			
+c:\dongle\vmulti\test	c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.exe				Sun Jul 10 15:07:07 2011	c:\dongle\vmulti\bin\testvmulti.exe	c:\dongle\vmulti\Symbols.pri\bin\exe\testvmulti.pdb			

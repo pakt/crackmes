@@ -1,0 +1,415 @@
+BUILD: Computing Include file dependencies:
+BUILD: Examining c:\dongle\vmulti directory tree for files to compile.
+oacr invalidate root:x86chk /autocleanqueue
+1>Building generated files in c:\dongle\vmulti\sys *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS0 NOLINK=1 PASS0ONLY=1 WDK_ALTERNATE_MAKEDIR=dongle\vmulti\sys MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1> copy .\vmulti.inx c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.inf
+1> 1 file(s) copied.
+1> stampinf -f c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.inf -a x86 -k 1.9
+1>Using version information from C:\WinDDK\7600.16385.1\inc\api\ntverp.h
+1>Stamping c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.inf [Version] section with DriverVer=07/10/2011,6.1.7600.16385
+1>perl.exe -e "my $muioff;open MISCMUIOFF,'c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\misc_mui_off';while (<MISCMUIOFF>){$muioff .= $_;}close MISCMUIOFF;open EXCLUDE, '>>c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\pass0_binp_mui_exclude';foreach $i (split(';',$muioff)){$i=~ s/,.+$//;$i=~ s/^\s*//;$i=~ s/\s*$//;print EXCLUDE qq($i\n);}close EXCLUDE;"
+1>binplace c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.inf
+BUILD: Examining c:\dongle\vmulti directory tree for files to compile. (2nd Pass)
+1>Compiling c:\dongle\vmulti\client *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i /nologo /f c:\winddk\7600.16385.1\bin\makefile.def BUILD_PASS=PASS1 NOLINK=1 NOPASS0=1 WDK_ALTERNATE_MAKEDIR=dongle\vmulti\client MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrcl @c:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386\cl.rsp
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Fo"c:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386/"
+1> /FC
+1> /Ii386
+1> /I.
+1> /I..\inc
+1> /Ic:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\crt
+1> /D_X86_=1
+1> /Di386=1
+1> /DSTD_CALL
+1> /DCONDITION_HANDLING=1
+1> /DNT_UP=1
+1> /DNT_INST=0
+1> /DWIN32=100
+1> /D_NT1X_=100
+1> /DWINNT=1
+1> /D_WIN32_WINNT=0x0501
+1> /DWINVER=0x0501
+1> /D_WIN32_IE=0x0603
+1> /DWIN32_LEAN_AND_MEAN=1
+1> /DDEVL=1
+1> /DDBG=1
+1> /D__BUILDMACHINE__=WinDDK
+1> /DFPO=0
+1> /D_DLL=1
+1> /D_MT=1
+1> /DDEPRECATE_DDK_FUNCTIONS=1
+1> /DMSC_NOOPT
+1> /DNTDDI_VERSION=0x05010200
+1> /DPSAPI_VERSION=1
+1> /c
+1> /Zc:wchar_t-
+1> /Zl
+1> /Zp8
+1> /Gy
+1> /Gm-
+1> /W3
+1> /Gz
+1> /hotpatch
+1> /EHs-c-
+1> /GR-
+1> /GF
+1> /GS-
+1> /Z7
+1> /Od
+1> /Oi
+1> /Oy-
+1> /Z7
+1> /DKMDF_MAJOR_VERSION_STRING=01
+1> /DKMDF_MINOR_VERSION_STRING=009
+1> /wd4603
+1> /wd4627
+1> /typedil-
+1> /FIC:\WinDDK\7600.16385.1\inc\api\warning.h
+1> .\client.c 
+1>client.c
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrlink /lib /out:c:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386\vmulticlient.lib /IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221  /WX /nodefaultlib /machine:ix86 @c:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386\lib.rsp
+1>Microsoft (R) Library Manager Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>c:\dongle\vmulti\obj\dongle\vmulti\client\objchk_wxp_x86\i386\client.obj 
+1>Compiling and Linking c:\dongle\vmulti\hidmapper *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 WDK_ALTERNATE_MAKEDIR=dongle\vmulti\hidmapper MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1>c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\echo.msg not found
+1>Microsoft (R) Windows (R) Resource Compiler Version 6.1.6908.0
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrcl @c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\cl.rsp
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Fo"c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386/"
+1> /FC
+1> /Ii386
+1> /I.
+1> /Ic:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\ddk
+1> /IC:\WinDDK\7600.16385.1\inc\ddk
+1> /IC:\WinDDK\7600.16385.1\inc\crt
+1> /D_X86_=1
+1> /Di386=1
+1> /DSTD_CALL
+1> /DCONDITION_HANDLING=1
+1> /DNT_UP=1
+1> /DNT_INST=0
+1> /DWIN32=100
+1> /D_NT1X_=100
+1> /DWINNT=1
+1> /D_WIN32_WINNT=0x0501
+1> /DWINVER=0x0501
+1> /D_WIN32_IE=0x0603
+1> /DWIN32_LEAN_AND_MEAN=1
+1> /DDEVL=1
+1> /DDBG=1
+1> /D__BUILDMACHINE__=WinDDK
+1> /DFPO=0
+1> /D_DLL=1
+1> /DNDEBUG
+1> /DDEPRECATE_DDK_FUNCTIONS=1
+1> /DMSC_NOOPT
+1> /DNTDDI_VERSION=0x05010200
+1> /c
+1> /Zc:wchar_t-
+1> /Zl
+1> /Zp8
+1> /Gy
+1> /Gm-
+1> -cbstring
+1> /W3
+1> /Gz
+1> /hotpatch
+1> /EHs-c-
+1> /GR-
+1> /GF
+1> /GS-
+1> /Zi
+1> /Od
+1> /Oi
+1> /Oy-
+1> /Zi
+1> /Fdc:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\
+1> /DKMDF_MAJOR_VERSION_STRING=01
+1> /DKMDF_MINOR_VERSION_STRING=009
+1> /wd4603
+1> /wd4627
+1> /typedil-
+1> /FIC:\WinDDK\7600.16385.1\inc\api\warning.h
+1> .\hidkmdf.c 
+1>hidkmdf.c
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrlink /out:c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys /machine:ix86 @c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\lnk.rsp
+1>Microsoft (R) Incremental Linker Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>/MERGE:_PAGE=PAGE 
+1>/MERGE:_TEXT=.text 
+1>/SECTION:INIT,d 
+1>/OPT:REF 
+1>/OPT:ICF 
+1>/IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221 
+1>/INCREMENTAL:NO 
+1>/release 
+1>/NODEFAULTLIB 
+1>/WX 
+1>/debug 
+1>/debugtype:cv,fixup,pdata 
+1>/version:6.1 
+1>/osversion:6.1 
+1>/functionpadmin:5 
+1>/safeseh 
+1>/pdbcompress 
+1>/STACK:0x40000,0x1000 
+1>/driver 
+1>/base:0x10000 
+1>/align:0x80 /stub:c:\winddk\7600.16385.1\lib\wxp\stub512.com 
+1>/subsystem:native,5.01 
+1>/entry:DriverEntry@8 
+1>/out:c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys 
+1>c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.res 
+1>c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.obj 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\ntoskrnl.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\hal.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\wmilib.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\hidclass.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\sehupd.lib 
+1>binplace c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys
+1> if not exist c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys.mui (  if not exist c:\dongle\vmulti\obj\dongle\vmulti\hidmapper\objchk_wxp_x86\i386\hidkmdf.sys.mui.notloc (  echo Build_Status  LN_MUI_STS: LGNSTS_MUIOFF hidkmdf.sys &&  echo Build_Status  MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon hidkmdf.sys  )  )
+1>Build_Status LN_MUI_STS: LGNSTS_MUIOFF hidkmdf.sys 
+1>Build_Status MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon hidkmdf.sys 
+1>Compiling and Linking c:\dongle\vmulti\sys *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 WDK_ALTERNATE_MAKEDIR=dongle\vmulti\sys MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1>c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\echo.msg not found
+1>Microsoft (R) Windows (R) Resource Compiler Version 6.1.6908.0
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrcl @c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\cl.rsp
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Fo"c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386/"
+1> /FC
+1> /Ii386
+1> /I.
+1> /I..\inc
+1> /Ic:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\ddk
+1> /IC:\WinDDK\7600.16385.1\inc\ddk
+1> /IC:\WinDDK\7600.16385.1\inc\wdf\kmdf\1.9
+1> /IC:\WinDDK\7600.16385.1\inc\crt
+1> /D_X86_=1
+1> /Di386=1
+1> /DSTD_CALL
+1> /DCONDITION_HANDLING=1
+1> /DNT_UP=1
+1> /DNT_INST=0
+1> /DWIN32=100
+1> /D_NT1X_=100
+1> /DWINNT=1
+1> /D_WIN32_WINNT=0x0501
+1> /DWINVER=0x0501
+1> /D_WIN32_IE=0x0603
+1> /DWIN32_LEAN_AND_MEAN=1
+1> /DDEVL=1
+1> /DDBG=1
+1> /D__BUILDMACHINE__=WinDDK
+1> /DFPO=0
+1> /D_DLL=1
+1> /DNDEBUG
+1> /DDEPRECATE_DDK_FUNCTIONS=1
+1> /DMSC_NOOPT
+1> /DNTDDI_VERSION=0x05010200
+1> /c
+1> /Zc:wchar_t-
+1> /Zl
+1> /Zp8
+1> /Gy
+1> /Gm-
+1> -cbstring
+1> /W3
+1> /Gz
+1> /hotpatch
+1> /EHs-c-
+1> /GR-
+1> /GF
+1> /GS
+1> /Zi
+1> /Od
+1> /Oi
+1> /Oy-
+1> /Zi
+1> /Fdc:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\
+1> /DKMDF_MAJOR_VERSION=1
+1> /DKMDF_MINOR_VERSION=9
+1> /DKMDF_MAJOR_VERSION_STRING=01
+1> /DKMDF_MINOR_VERSION_STRING=009
+1> /wd4603
+1> /wd4627
+1> /typedil-
+1> /FIC:\WinDDK\7600.16385.1\inc\api\warning.h
+1> .\vmulti.c 
+1>vmulti.c
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrlink /out:c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys /machine:ix86 @c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\lnk.rsp
+1>Microsoft (R) Incremental Linker Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>/MERGE:_PAGE=PAGE 
+1>/MERGE:_TEXT=.text 
+1>/SECTION:INIT,d 
+1>/OPT:REF 
+1>/OPT:ICF 
+1>/IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221 
+1>/INCREMENTAL:NO 
+1>/release 
+1>/NODEFAULTLIB 
+1>/WX 
+1>/debug 
+1>/debugtype:cv,fixup,pdata 
+1>/version:6.1 
+1>/osversion:6.1 
+1>/functionpadmin:5 
+1>/safeseh 
+1>/pdbcompress 
+1>/STACK:0x40000,0x1000 
+1>/driver 
+1>/base:0x10000 
+1>/align:0x80 /stub:c:\winddk\7600.16385.1\lib\wxp\stub512.com 
+1>/subsystem:native,5.01 
+1>/entry:FxDriverEntry@8 
+1>/out:c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys 
+1>c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.res 
+1>c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.obj 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\BufferOverflowK.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\ntoskrnl.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\hal.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\wmilib.lib 
+1>C:\WinDDK\7600.16385.1\lib\wdf\kmdf\i386\1.9\WdfLdr.lib 
+1>C:\WinDDK\7600.16385.1\lib\wdf\kmdf\i386\1.9\WdfDriverEntry.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\hidclass.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\ntstrsafe.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\sehupd.lib 
+1>binplace c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys
+1> if not exist c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys.mui (  if not exist c:\dongle\vmulti\obj\dongle\vmulti\sys\objchk_wxp_x86\i386\vmulti.sys.mui.notloc (  echo Build_Status  LN_MUI_STS: LGNSTS_MUIOFF vmulti.sys &&  echo Build_Status  MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon vmulti.sys  )  )
+1>Build_Status LN_MUI_STS: LGNSTS_MUIOFF vmulti.sys 
+1>Build_Status MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon vmulti.sys 
+1>Compiling and Linking c:\dongle\vmulti\test *************
+1>'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 WDK_ALTERNATE_MAKEDIR=dongle\vmulti\test MAKEDIR_RELATIVE_TO_BASEDIR='
+1>BUILDMSG: _NT_TARGET_VERSION SET TO WINXP
+1>c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\echo.msg not found
+1>Microsoft (R) Windows (R) Resource Compiler Version 6.1.6908.0
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrcl @c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\cl.rsp
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Fo"c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386/"
+1> /FC
+1> /Ii386
+1> /I.
+1> /I..\inc
+1> /Ic:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\api
+1> /IC:\WinDDK\7600.16385.1\inc\crt
+1> /D_X86_=1
+1> /Di386=1
+1> /DSTD_CALL
+1> /DCONDITION_HANDLING=1
+1> /DNT_UP=1
+1> /DNT_INST=0
+1> /DWIN32=100
+1> /D_NT1X_=100
+1> /DWINNT=1
+1> /D_WIN32_WINNT=0x0501
+1> /DWINVER=0x0501
+1> /D_WIN32_IE=0x0603
+1> /DWIN32_LEAN_AND_MEAN=1
+1> /DDEVL=1
+1> /DDBG=1
+1> /D__BUILDMACHINE__=WinDDK
+1> /DFPO=0
+1> /D_DLL=1
+1> /D_MT=1
+1> /DDEPRECATE_DDK_FUNCTIONS=1
+1> /DMSC_NOOPT
+1> /DNTDDI_VERSION=0x05010200
+1> /DPSAPI_VERSION=1
+1> /c
+1> /Zc:wchar_t-
+1> /Zl
+1> /Zp8
+1> /Gy
+1> /Gm-
+1> /W3
+1> /Gz
+1> /hotpatch
+1> /EHs-c-
+1> /GR-
+1> /GF
+1> /GS-
+1> /Zi
+1> /Od
+1> /Oi
+1> /Oy-
+1> /Zi
+1> /Fdc:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\
+1> /DKMDF_MAJOR_VERSION_STRING=01
+1> /DKMDF_MINOR_VERSION_STRING=009
+1> /wd4603
+1> /wd4627
+1> /typedil-
+1> /FIC:\WinDDK\7600.16385.1\inc\api\warning.h
+1> .\testvmulti.c 
+1>testvmulti.c
+1> C:\WinDDK\7600.16385.1\Bin\x86\oacr\oacrlink /out:c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.exe /machine:ix86 @c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\lnk.rsp
+1>Microsoft (R) Incremental Linker Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>/MERGE:_PAGE=PAGE 
+1>/MERGE:_TEXT=.text 
+1>/SECTION:INIT,d 
+1>/OPT:REF 
+1>/OPT:ICF 
+1>/IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221 
+1>/INCREMENTAL:NO 
+1>/release 
+1>/NODEFAULTLIB 
+1>/WX 
+1>/debug 
+1>/debugtype:cv,fixup,pdata 
+1>/version:6.1 
+1>/osversion:6.1 
+1>/functionpadmin:5 
+1>/safeseh 
+1>/nxcompat 
+1>/merge:.rdata=.text 
+1>/pdbcompress 
+1>/STACK:0x40000,0x2000 
+1>/tsaware 
+1>/dynamicbase 
+1>/subsystem:console,5.01 
+1>/base:0x400000 
+1>/entry:mainCRTStartup 
+1>c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.res 
+1>c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.obj 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\advapi32.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\kernel32.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\msvcrt_winxp.obj 
+1>C:\WinDDK\7600.16385.1\lib\crt\i386\msvcrt.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\hid.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\setupapi.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\comdlg32.lib 
+1>c:\dongle\vmulti\obj\dongle\vmulti\test\..\client\objchk_wxp_x86\i386\vmulticlient.lib 
+1>c:\winddk\7600.16385.1\lib\wxp\i386\sehupd.lib 
+1>binplace c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.exe
+1> if not exist c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.exe.mui (  if not exist c:\dongle\vmulti\obj\dongle\vmulti\test\objchk_wxp_x86\i386\testvmulti.exe.mui.notloc (  echo Build_Status  LN_MUI_STS: LGNSTS_MUIOFF testvmulti.exe &&  echo Build_Status  MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon testvmulti.exe  )  )
+1>Build_Status LN_MUI_STS: LGNSTS_MUIOFF testvmulti.exe 
+1>Build_Status MUI_COMMENT: LN_TEMPSUPPORT, LANGUAGE_NEUTRAL value being used to set MUI - this support will be removed soon testvmulti.exe 

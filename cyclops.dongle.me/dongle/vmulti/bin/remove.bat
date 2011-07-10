@@ -1,0 +1,10 @@
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col01"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col02"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col03"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col04"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col05"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col06"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col07"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\VMulti&Col08"
+C:\WinDDK\7600.16385.1\tools\devcon\i386\devcon.exe remove "HID\vmulti"
+

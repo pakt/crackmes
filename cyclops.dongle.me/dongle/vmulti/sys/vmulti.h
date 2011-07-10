@@ -70,11 +70,12 @@
 //
 // This is the default report descriptor for the Hid device provided
 // by the mini driver in response to IOCTL_HID_GET_REPORT_DESCRIPTOR.
-// 
+//
 
 typedef UCHAR HID_REPORT_DESCRIPTOR, *PHID_REPORT_DESCRIPTOR;
 
 HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
+/*
 //
 // Multitouch report starts here
 //
@@ -101,40 +102,40 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
 //
     0x09, 0x0E,                         // USAGE (Device Configuration)
     0xa1, 0x01,                         // COLLECTION (Application)
-    0x85, REPORTID_FEATURE,             //   REPORT_ID (Configuration)              
-    0x09, 0x23,                         //   USAGE (Device Settings)              
-    0xa1, 0x02,                         //   COLLECTION (logical)    
-    0x09, 0x52,                         //    USAGE (Device Mode)         
+    0x85, REPORTID_FEATURE,             //   REPORT_ID (Configuration)
+    0x09, 0x23,                         //   USAGE (Device Settings)
+    0xa1, 0x02,                         //   COLLECTION (logical)
+    0x09, 0x52,                         //    USAGE (Device Mode)
     0x09, 0x53,                         //    USAGE (Device Identifier)
-    0x15, 0x00,                         //    LOGICAL_MINIMUM (0)      
+    0x15, 0x00,                         //    LOGICAL_MINIMUM (0)
     0x25, 0x0a,                         //    LOGICAL_MAXIMUM (10)
-    0x75, 0x08,                         //    REPORT_SIZE (8)         
-    0x95, 0x02,                         //    REPORT_COUNT (2)         
-    0xb1, 0x02,                         //   FEATURE (Data,Var,Abs)    
+    0x75, 0x08,                         //    REPORT_SIZE (8)
+    0x95, 0x02,                         //    REPORT_COUNT (2)
+    0xb1, 0x02,                         //   FEATURE (Data,Var,Abs)
     0xc0,                               //   END_COLLECTION
     0xc0,                               // END_COLLECTION
 
 //
 // Mouse report starts here
 //
-    0x05, 0x01,                         // USAGE_PAGE (Generic Desktop) 
-    0x09, 0x02,                         // USAGE (Mouse)               
-    0xa1, 0x01,                         // COLLECTION (Application)   
-    0x85, REPORTID_MOUSE,               //   REPORT_ID (Mouse)       
-    0x09, 0x01,                         //   USAGE (Pointer)        
-    0xa1, 0x00,                         //   COLLECTION (Physical) 
+    0x05, 0x01,                         // USAGE_PAGE (Generic Desktop)
+    0x09, 0x02,                         // USAGE (Mouse)
+    0xa1, 0x01,                         // COLLECTION (Application)
+    0x85, REPORTID_MOUSE,               //   REPORT_ID (Mouse)
+    0x09, 0x01,                         //   USAGE (Pointer)
+    0xa1, 0x00,                         //   COLLECTION (Physical)
     0x05, 0x09,                         //     USAGE_PAGE (Button)
-    0x19, 0x01,                         //     USAGE_MINIMUM (Button 1) 
+    0x19, 0x01,                         //     USAGE_MINIMUM (Button 1)
     0x29, 0x02,                         //     USAGE_MAXIMUM (Button 2)
-    0x15, 0x00,                         //     LOGICAL_MINIMUM (0)    
-    0x25, 0x01,                         //     LOGICAL_MAXIMUM (1)   
-    0x75, 0x01,                         //     REPORT_SIZE (1)      
-    0x95, 0x02,                         //     REPORT_COUNT (2)    
+    0x15, 0x00,                         //     LOGICAL_MINIMUM (0)
+    0x25, 0x01,                         //     LOGICAL_MAXIMUM (1)
+    0x75, 0x01,                         //     REPORT_SIZE (1)
+    0x95, 0x02,                         //     REPORT_COUNT (2)
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)
-    0x95, 0x06,                         //     REPORT_COUNT (6)   
-    0x81, 0x03,                         //     INPUT (Cnst,Var,Abs)    
+    0x95, 0x06,                         //     REPORT_COUNT (6)
+    0x81, 0x03,                         //     INPUT (Cnst,Var,Abs)
     0x05, 0x01,                         //     USAGE_PAGE (Generic Desktop)
-    0x26, 0xff, 0x7f,                   //     LOGICAL_MAXIMUM (32767)    
+    0x26, 0xff, 0x7f,                   //     LOGICAL_MAXIMUM (32767)
     0x75, 0x10,                         //     REPORT_SIZE (16)
     0x95, 0x01,                         //     REPORT_COUNT (1)
     0x55, 0x0F,                         //     UNIT_EXPONENT (-1)
@@ -152,8 +153,8 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x75, 0x08,                         //     Report Size (8)
     0x95, 0x01,                         //     Report Count (1)
     0x81, 0x06,                         //     Input (Data, Variable, Relative)
-    0xc0,                               //   END_COLLECTION              
-    0xc0,                               // END_COLLECTION     
+    0xc0,                               //   END_COLLECTION
+    0xc0,                               // END_COLLECTION
 
 //
 // Digitizer report starts here
@@ -176,16 +177,16 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x95, 0x06,                         //     REPORT_COUNT (6)
     0x81, 0x01,                         //     INPUT (Cnst,Ary,Abs)
     0x05, 0x01,                         //     USAGE_PAGE (Generic Desktop)
-    0x26, 0xff, 0x7f,                   //     LOGICAL_MAXIMUM (32767)       
-    0x75, 0x10,                         //     REPORT_SIZE (16) 
-    0x95, 0x01,                         //     REPORT_COUNT (1)            
-    0x55, 0x0F,                         //     UNIT_EXPONENT (-1)           
-    0x65, 0x11,                         //     UNIT (cm,SI Linear)                  
-    0x35, 0x00,                         //     PHYSICAL_MINIMUM (0)         
+    0x26, 0xff, 0x7f,                   //     LOGICAL_MAXIMUM (32767)
+    0x75, 0x10,                         //     REPORT_SIZE (16)
+    0x95, 0x01,                         //     REPORT_COUNT (1)
+    0x55, 0x0F,                         //     UNIT_EXPONENT (-1)
+    0x65, 0x11,                         //     UNIT (cm,SI Linear)
+    0x35, 0x00,                         //     PHYSICAL_MINIMUM (0)
     0x45, 0x00,                         //     PHYSICAL_MAXIMUM (0)
-    0x09, 0x30,                         //     USAGE (X)                    
-    0x81, 0x02,                         //     INPUT (Data,Var,Abs)         
-    0x09, 0x31,                         //     USAGE (Y)                    
+    0x09, 0x30,                         //     USAGE (X)
+    0x81, 0x02,                         //     INPUT (Data,Var,Abs)
+    0x09, 0x31,                         //     USAGE (Y)
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)
     0xc0,                               //   END_COLLECTION
     0xc0,                               // END_COLLECTION
@@ -198,7 +199,7 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x09, 0x04,                         // USAGE (Joystick)
     0xa1, 0x01,                         // COLLECTION (Application)
     0x85, REPORTID_JOYSTICK,            //   REPORT_ID (Joystick)
-    
+
     0x05, 0x02,                         //   USAGE_PAGE (Simulation Controls)
     0x09, 0xbb,                         //   USAGE (Throttle)
     0x15, 0x81,                         //   LOGICAL_MINIMUM (-127)
@@ -230,7 +231,7 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x09, 0x33,                         //     USAGE (Rx)
     0x95, 0x01,                         //     REPORT_COUNT (1)
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)
- 
+
     0x09, 0x34,                         //     USAGE (Ry)
     0x95, 0x01,                         //     REPORT_COUNT (1)
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)
@@ -250,11 +251,11 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
 
 //
 // Keyboard report starts here
-//    
+//
     0x05, 0x01,                         // USAGE_PAGE (Generic Desktop)
     0x09, 0x06,                         // USAGE (Keyboard)
     0xa1, 0x01,                         // COLLECTION (Application)
-    0x85, REPORTID_KEYBOARD,            //   REPORT_ID (Keyboard)    
+    0x85, REPORTID_KEYBOARD,            //   REPORT_ID (Keyboard)
     0x05, 0x07,                         //   USAGE_PAGE (Keyboard)
     0x19, 0xe0,                         //   USAGE_MINIMUM (Keyboard LeftControl)
     0x29, 0xe7,                         //   USAGE_MAXIMUM (Keyboard Right GUI)
@@ -284,15 +285,32 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x29, 0x65,                         //   USAGE_MAXIMUM (Keyboard Application)
     0x81, 0x00,                         //   INPUT (Data,Ary,Abs)
     0xc0,                               // END_COLLECTION
-    
+*/
+//
+// Vendor defined message report starts here
+//
+    0x06, 0x00, 0xff,                    // USAGE_PAGE (Vendor Defined Page 1)
+    0x09, 0x02,                          // USAGE (Vendor Usage 2)
+    0xa1, 0x01,                          // COLLECTION (Application)
+    0x85, REPORTID_MESSAGE,              //   REPORT_ID (1)
+    0x15, 0x00,                          //   LOGICAL_MINIMUM (0)
+    0x26, 0xff, 0x00,                    //   LOGICAL_MAXIMUM (255)
+    0x75, 0x08,                          //   REPORT_SIZE  (8)   - bits
+    0x95, 0x3e,                          //   REPORT_COUNT (32)  - Bytes
+    0x09, 0x02,                          //   USAGE (Vendor Usage 1)
+    0x81, 0x02,                          //   INPUT (Data,Var,Abs)
+    0x95, 0x40,                          //   REPORT_COUNT (64)  - Bytes
+    0x09, 0x02,                          //   USAGE (Vendor Usage 1)
+    0x91, 0x02,                          //   OUTPUT (Data,Var,Abs)
+    0xc0,                                // END_COLLECTION
 
 //
-// Vendor defined report starts here
+// Vendor defined control report starts here
 //
     0x06, 0x00, 0xff,                    // USAGE_PAGE (Vendor Defined Page 1)
     0x09, 0x01,                          // USAGE (Vendor Usage 1)
     0xa1, 0x01,                          // COLLECTION (Application)
-    0x85, REPORTID_VENDOR_01,            //   REPORT_ID (1)  
+    0x85, REPORTID_CONTROL,              //   REPORT_ID (1)
     0x15, 0x00,                          //   LOGICAL_MINIMUM (0)
     0x26, 0xff, 0x00,                    //   LOGICAL_MAXIMUM (255)
     0x75, 0x08,                          //   REPORT_SIZE  (8)   - bits
@@ -303,7 +321,10 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x09, 0x02,                          //   USAGE (Vendor Usage 1)
     0x91, 0x02,                          //   OUTPUT (Data,Var,Abs)
     0xc0,                                // END_COLLECTION
+
+
 };
+
 
 //
 // This is the default HID descriptor returned by the mini driver
@@ -317,12 +338,12 @@ CONST HID_DESCRIPTOR DefaultHidDescriptor = {
     0x0100, // hid spec release
     0x00,   // country code == Not Specified
     0x01,   // number of HID class descriptors
-    { 0x22,   // descriptor type 
+    { 0x22,   // descriptor type
     sizeof(DefaultReportDescriptor) }  // total length of report descriptor
 };
 
 
-typedef struct _VMULTI_CONTEXT 
+typedef struct _VMULTI_CONTEXT
 {
 
     WDFQUEUE ReportQueue;

@@ -1,0 +1,17 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\testvmulti.obj \
+
+
+_RES_FILE=$(OBJ_PATH)\$O\testvmulti.res
+
+
+
+# lowercased
+BASEDIR=c:\winddk\7600.16385.1
+OBJECT_ROOT=c:\dongle\vmulti\obj
+MAKEDIR_LOWERCASE=c:\dongle\vmulti\test
+OBJ_PATH=c:\dongle\vmulti\obj\dongle\vmulti\test
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0
