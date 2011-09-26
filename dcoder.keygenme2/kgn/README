@@ -1,0 +1,17 @@
+Keygen for Keygenme 2 by Dcoder
+-------------------------------
+
+To compile, run make. You will need:
+- FLINT (www.flintlib.org)
+- MPIR/MPFR (dependecies for FLINT)
+
+It should compile without any warnings (tested on ubuntu 11.04).
+
+Compiled files are:
+* keygen - run ./keygen name, to get serial for name
+* lambda - implementation of Pollard's lambda (kangaroo) algorithm.
+           It should find the DLOG in <1h on a modern (2Ghz) processor.
+
+pa_kt
+twitter.com/pa_kt
+gdtr.wordpress.com
