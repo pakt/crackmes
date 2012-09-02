@@ -1,0 +1,17 @@
+Crackme from "best reverser" contest held during PHDays 2012
+(http://phdays.com/program/contests/#6323). Only one person provided an
+incomplete solution (mr Skylarov). The problem was that crackme has a bug
+in the second stage (uninitialzied stack variable).
+
+I solved the first stage in time, but figured I won't be able to finish
+stage2 before deadline, so I didn't even analyze it and did not submit
+my partial solution.
+
+ESET crackme released during BlackHat 2012 is a modified version of this
+one. The only difference is that the bug was fixed and stages are swapped
+:P.
+
+I ran the BH crackme under a debugger just few times and completely missed
+the part where a stack pointer is overwritten -- I guess I implicitly assumed
+that this kind of solution would be considered "patching". Lesson: some
+authors don't allow in memory modifications, others do :P.
